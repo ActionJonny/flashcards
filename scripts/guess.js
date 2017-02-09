@@ -1,6 +1,3 @@
-import Card from './cards'
-import Round from './round'
-
 class Guess {
   constructor(response, card) {
     this.response = response
@@ -9,12 +6,7 @@ class Guess {
   }
 
   feedback() {
-    if(this.correct) {
-      return 'Correct!'
-      round.numberCorrect++
-    } else {
-      return 'Incorrect'
-    }
+    return this.correct ? 'Correct!' : 'Incorrect'
   }
 }
 

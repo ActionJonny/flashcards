@@ -1,6 +1,4 @@
-import Card from './cards'
 import Guess from './guess'
-import Deck from './deck'
 
 class Round {
   constructor(deck) {
@@ -16,7 +14,16 @@ class Round {
   recordGuess(response, card) {
     let guess = new Guess(response, card)
     this.guesses.push(guess)
+    guess.correct ? this.numberCorrect++ : null
     return this.guesses
+  }
+
+  percentCorrect() {
+    let amountOfCards  = this.guesses.length
+    let correctAnswers = this.numberCorrect
+    let percentage     = correctAnswers / amountOfCards * 100
+
+    return percentage
   }
 }
 
